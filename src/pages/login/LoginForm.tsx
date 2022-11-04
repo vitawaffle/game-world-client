@@ -1,9 +1,19 @@
 import { useForm, FieldValues } from 'react-hook-form';
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 
 import TextFormControl from '../../components/form/TextFormControl';
 
 const LoginForm = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const schema = yup.object({
+    username: yup.string().required(),
+    password: yup.string().required(),
+  });
+
+  const { register, handleSubmit, formState: { errors } } = useForm({
+    resolver: yupResolver(schema)
+  });
+
   const onSubmit = (data: FieldValues) => console.log(data);
 
   return (
