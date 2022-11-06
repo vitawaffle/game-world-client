@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import HeaderLink from './HeaderLink';
 
 const Header = () => (
-  <nav className="navbar navbar-expand-lg bg-light">
+  <nav className="navbar navbar-expand-lg bg-light mb-4">
     <div className="container-fluid">
       <Link to="/home" className="navbar-brand">
         Tic-Tac-Toe
@@ -26,7 +26,8 @@ const Header = () => (
           </HeaderLink>
         </ul>
         <div className="d-flex">
-          <Link to="/login" className="btn btn-outline-primary">Log in</Link>
+          <Link to="/login" className="btn btn-outline-primary  me-2">Log in</Link>
+          <Link to="/signin" className="btn btn-primary">Sign in</Link>
         </div>
       </div>
     </div>

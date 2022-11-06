@@ -21,18 +21,14 @@ const LoginForm = () => {
       <TextFormControl
         id="username"
         label="Username*"
-        formControl={register('username', {
-          required: 'This field is required.',
-        })}
+        formControl={register('username')}
         validationError={errors.username}
       />
       <TextFormControl
         type="password"
         id="password"
         label="Password*"
-        formControl={register('password', {
-          required: 'This field is required.',
-        })}
+        formControl={register('password')}
         validationError={errors.password}
       />
       <button type="submit" className="btn btn-primary">
