@@ -6,10 +6,20 @@ import TextFormControl from '../../components/form/TextFormControl';
 
 const SigninForm = () => {
   const schema = yup.object({
-    email: yup.string().required().email().unique('users', 'email'),
-    username: yup.string().required().username().unique('users', 'username'),
-    password: yup.string().required(),
-    confirmedPassword: yup.string().required(),
+    email: yup.string()
+      .required('This field is required.')
+      .email('Invalid email format.')
+      .unique('users', 'email'),
+    username: yup.string()
+      .required('This field is required.')
+      .username()
+      .unique('users', 'username'),
+    password: yup.string()
+      .required('This field is required.')
+      .password(),
+    confirmedPassword: yup.string()
+      .required('This field is required.')
+      .oneOf([yup.ref('password'), null], 'Password mismatch.'),
   });
 
   const { register, handleSubmit, formState: { errors } } = useForm({
