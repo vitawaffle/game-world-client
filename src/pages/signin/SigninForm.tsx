@@ -2,7 +2,10 @@ import { useForm, FieldValues } from 'react-hook-form';
 import yup from '../../yupExtensions';
 import { yupResolver } from '@hookform/resolvers/yup';
 
+import Form from '../../components/form/Form';
 import TextFormControl from '../../components/form/TextFormControl';
+import useLocalization from '../../localization/useLocalization';
+import client from '../../client';
 
 const SigninForm = () => {
   const schema = yup.object({
@@ -26,41 +29,45 @@ const SigninForm = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (data: FieldValues) => console.log(data);
+  const { strings } = useLocalization();
+
+  const onSubmit = (data: FieldValues) => {
+    client.post('/auth/signin', data);
+  };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <Form
+      onSubmit={handleSubmit(onSubmit)}
+      submitText={strings.pages.signin.signIn}
+    >
       <TextFormControl
         type="email"
         id="email"
-        label="Email*"
+        label={`${strings.pages.signin.email}*`}
         formControl={register('email')}
         validationError={errors.email}
       />
       <TextFormControl
         id="username"
-        label="Username*"
+        label={`${strings.pages.signin.username}*`}
         formControl={register('username')}
         validationError={errors.username}
       />
       <TextFormControl
         type="password"
         id="password"
-        label="Password*"
+        label={`${strings.pages.signin.password}*`}
         formControl={register('password')}
         validationError={errors.password}
       />
       <TextFormControl
         type="password"
         id="confirmedPassword"
-        label="Confirm password*"
+        label= {`${strings.pages.signin.confirmPassword}*`}
         formControl={register('confirmedPassword')}
         validationError={errors.confirmedPassword}
       />
-      <button type="submit" className="btn btn-primary">
-        Sign in
-      </button>
-    </form>
+    </Form>
   );
 };
 

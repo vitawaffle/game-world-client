@@ -9,12 +9,22 @@ const strings_en = {
   },
   pages: {
     login: {
-      prompt: 'Pleasy, log in',
+      prompt: 'Please, log in',
       username: 'Username',
       password: 'Password',
       logIn: 'Log in',
       signInPrompt: 'Don\'t have an account?',
       signIn: 'Sign in',
+    },
+    signin: {
+      prompt: 'Please, sign in',
+      email: 'Email',
+      username: 'Username',
+      password: 'Password',
+      confirmPassword: 'Confirm password',
+      signIn: 'Sign in',
+      logInPrompt: 'Alreay have an account?',
+      logIn: 'Log in',
     },
   },
 };

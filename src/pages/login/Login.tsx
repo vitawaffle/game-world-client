@@ -14,7 +14,9 @@ const Login = () => {
       <Header />
       <Layout>
         <CenterFormRow>
-          <h3>{strings.pages.login.prompt}</h3>
+          <h3>
+            {strings.pages.login.prompt}
+          </h3>
         </CenterFormRow>
         <CenterFormRow>
           <LoginForm />
@@ -22,6 +24,7 @@ const Login = () => {
         <CenterFormRow>
           <p>
             {strings.pages.login.signInPrompt}
+            &nbsp;
             <Link to="/signin">
               {strings.pages.login.signIn}
             </Link>

@@ -16,6 +16,16 @@ const strings_ru = {
       signInPrompt: 'Нет аккаунта?',
       signIn: 'Зарегистрируйтесь',
     },
+    signin: {
+      prompt: 'Пожалуйста, зарегистрируйтесь',
+      email: 'Электронная почта',
+      username: 'Имя пользователя',
+      password: 'Пароль',
+      confirmPassword: 'Подтвердите пароль',
+      signIn: 'Зарегистрироваться',
+      logInPrompt: 'Уже есть аккаунт?',
+      logIn: 'Войдите',
+    },
   },
 };
 
