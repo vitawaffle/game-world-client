@@ -2,9 +2,17 @@ import { Link } from 'react-router-dom';
 
 import HeaderLink from './HeaderLink';
 import useLocalization from '../../localization/useLocalization';
+import useIsAuthenticated from '../../hooks/useIsAuthenticated';
+import useLogout from '../../hooks/useLogout';
 
 const Header = () => {
   const { strings } = useLocalization();
+  const isAuthenticated = useIsAuthenticated();
+  const logout = useLogout();
+
+  const handleLogoutClick = () => {
+    logout();
+  };
 
   return (
     <nav className="navbar navbar-expand-lg bg-light mb-4">
@@ -30,12 +38,25 @@ const Header = () => {
             </HeaderLink>
           </ul>
           <div className="d-flex">
-            <Link to="/login" className="btn btn-outline-primary  me-2">
-              {strings.components.header.logIn}
-            </Link>
-            <Link to="/signin" className="btn btn-primary">
-              {strings.components.header.signIn}
-            </Link>
+            {!isAuthenticated && (
+              <Link to="/login" className="btn btn-outline-primary  me-2">
+                {strings.components.header.logIn}
+              </Link>
+            )}
+            {!isAuthenticated && (
+              <Link to="/signin" className="btn btn-primary">
+                {strings.components.header.signIn}
+              </Link>
+            )}
+            {isAuthenticated && (
+              <button
+                type="button"
+                onClick={handleLogoutClick}
+                className="btn btn-outline-primary"
+              >
+                {strings.components.header.logOut}
+              </button>
+            )}
           </div>
         </div>
       </div>

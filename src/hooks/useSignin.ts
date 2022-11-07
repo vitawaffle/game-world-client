@@ -1,7 +1,8 @@
-import client from '../client';
+import useClient from './useClient';
 import useLogin from './useLogin';
 
 const useSignin = () => {
+  const client = useClient();
   const login = useLogin();
 
   const signin = async (data: {

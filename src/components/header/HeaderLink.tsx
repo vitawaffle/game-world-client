@@ -1,5 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 
+import HeaderLinkProps from './HeaderLinkProps';
+
 const HeaderLink = ({ to, children }: HeaderLinkProps) => {
   const location = useLocation();
 
@@ -19,8 +21,3 @@ const HeaderLink = ({ to, children }: HeaderLinkProps) => {
 };
 
 export default HeaderLink;
-
-export type HeaderLinkProps = {
-  to: string;
-  children: any;
-};

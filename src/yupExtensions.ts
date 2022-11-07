@@ -1,6 +1,7 @@
 import * as yup from 'yup';
+import { AxiosInstance } from 'axios';
 
-import client from './client';
+import useClient from './hooks/useClient';
 
 yup.addMethod(yup.string, 'username', function (this) {
   return this.test(
@@ -20,8 +21,10 @@ yup.addMethod(yup.string, 'unique', function (
   collectionName: string,
   fieldName: string,
 ) {
+  const client = useClient();
+
   return this.test('unique', 'This field should be unique.', function (value) {
-    return isUnique(value ?? '', collectionName, fieldName);
+    return isUnique(value ?? '', collectionName, fieldName, client);
   });
 });
 
@@ -29,6 +32,7 @@ async function isUnique(
   value: string,
   collectionName: string,
   fieldName: string,
+  client: AxiosInstance,
 ): Promise<boolean> {
   return !(await client.get<boolean>(
     `/${collectionName}/exists?${fieldName}=${value}`

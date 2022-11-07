@@ -5,6 +5,7 @@ const strings_ru = {
       home: 'На главную',
       logIn: 'Войти',
       signIn: 'Зарегистрироваться',
+      logOut: 'Выйти',
     },
   },
   pages: {

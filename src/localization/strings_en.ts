@@ -5,6 +5,7 @@ const strings_en = {
       home: 'Home',
       logIn: 'Log in',
       signIn: 'Sign in',
+      logOut: 'Log out',
     },
   },
   pages: {
