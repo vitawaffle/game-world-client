@@ -1,11 +1,12 @@
 import { useForm, FieldValues } from 'react-hook-form';
 import yup from '../../yupExtensions';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useNavigate } from 'react-router-dom';
 
 import Form from '../../components/form/Form';
 import TextFormControl from '../../components/form/TextFormControl';
 import useLocalization from '../../localization/useLocalization';
-import client from '../../client';
+import useSignin from '../../hooks/useSignin';
 
 const SigninForm = () => {
   const schema = yup.object({
@@ -31,8 +32,17 @@ const SigninForm = () => {
 
   const { strings } = useLocalization();
 
+  const navigate = useNavigate();
+  const signin = useSignin();
+
   const onSubmit = (data: FieldValues) => {
-    client.post('/auth/signin', data);
+    signin({
+      email: data.email,
+      username: data.username,
+      password: data.password,
+    }).then(() => {
+      navigate('/home');
+    });
   };
 
   return (
