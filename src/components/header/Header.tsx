@@ -2,12 +2,13 @@ import { Link } from 'react-router-dom';
 
 import HeaderLink from './HeaderLink';
 import useLocalization from '../../localization/useLocalization';
-import useIsAuthenticated from '../../hooks/useIsAuthenticated';
 import useLogout from '../../hooks/useLogout';
+import useSelector from '../../redux/useSelector';
+import { selectIsAuthenticated } from '../../redux/slices/authSlice';
 
 const Header = () => {
   const { strings } = useLocalization();
-  const isAuthenticated = useIsAuthenticated();
+  const isAuthenticated = useSelector(selectIsAuthenticated);
   const logout = useLogout();
 
   const handleLogoutClick = () => {

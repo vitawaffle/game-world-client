@@ -5,10 +5,12 @@ import { RootState } from '../store';
 
 type AuthState = {
   user?: User;
+  isAuthenticated: boolean;
 };
 
 const initialState: AuthState = {
   user: undefined,
+  isAuthenticated: false,
 };
 
 export const authSlice = createSlice({  
@@ -16,7 +18,9 @@ export const authSlice = createSlice({
   initialState,
   reducers: {
     setUser: (state, action: PayloadAction<User>) => {
-      state.user = action.payload;
+      const user = action.payload;
+      state.user = user;
+      state.isAuthenticated = !!user;
     },
   },
 });
@@ -26,3 +30,4 @@ export default authSlice.reducer;
 export const { setUser } = authSlice.actions;
 
 export const selectUser = (state: RootState) => state.auth.user;
+export const selectIsAuthenticated = (state: RootState) => state.auth.isAuthenticated;
