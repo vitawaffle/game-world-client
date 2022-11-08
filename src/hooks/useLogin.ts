@@ -4,7 +4,7 @@ import useClient from './useClient';
 import useGetMe from './useGetMe';
 
 const useLogin = () => {
-  const [cookie, setCookies] = useCookies(['token']);
+  const [, setCookies] = useCookies(['token']);
   const client = useClient();
   const getMe = useGetMe();
 
