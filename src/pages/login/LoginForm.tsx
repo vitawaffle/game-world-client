@@ -7,6 +7,7 @@ import TextFormControl from '../../components/form/TextFormControl';
 import Form from '../../components/form/Form';
 import useLocalization from '../../localization/useLocalization';
 import useLogin from '../../hooks/useLogin';
+import useGetMe from '../../hooks/useGetMe';
 
 const LoginForm = () => {
   const schema = yup.object({
@@ -19,16 +20,18 @@ const LoginForm = () => {
   });
 
   const { strings } = useLocalization();
-
   const navigate = useNavigate();
   const login = useLogin();
+  const getMe = useGetMe();
 
   const onSubmit = (data: FieldValues) => {
     login({
       username: data.username,
       password: data.password,
-    }).then(() => {
-      navigate('/home');
+    }).finally(() => {
+      getMe().finally(() => {
+        navigate('/home');
+      });
     });
   };
 

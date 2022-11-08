@@ -1,15 +1,10 @@
 import { useCookies } from 'react-cookie';
 
-import useGetMe from './useGetMe';
-
 const useLogout = () => {
   const [, , removeCookie] = useCookies(['token']);
-  const getMe = useGetMe();
 
-  const logout = async () => {
+  const logout = () => {
     removeCookie('token');
-
-    return getMe();
   };
 
   return logout;

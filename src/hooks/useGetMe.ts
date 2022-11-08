@@ -1,16 +1,15 @@
 import useClient from './useClient';
-import User from '../entity/User';
 import useDispatch from '../redux/useDispatch';
 import { setUser } from '../redux/slices/authSlice';
+import User from '../entities/User';
 
 const useGetMe = () => {
-  const dispatch = useDispatch();
   const client = useClient();
+  const dispatch = useDispatch();
 
   const getMe = async () => {
     const user = (await client.get<User>('/users/me')).data;
     dispatch(setUser(user));
-    return user;
   };
 
   return getMe;

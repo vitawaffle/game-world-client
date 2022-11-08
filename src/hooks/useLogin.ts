@@ -1,25 +1,17 @@
 import { useCookies } from 'react-cookie';
 
 import useClient from './useClient';
-import useGetMe from './useGetMe';
 
 const useLogin = () => {
-  const [, setCookies] = useCookies(['token']);
   const client = useClient();
-  const getMe = useGetMe();
+  const [, setCookie] = useCookies(['token']);
 
   const login = async (data: {
     username: string,
     password: string,
   }) => {
-    const token = (await client.post<{ token: string }>(
-      '/auth/login',
-      data,
-    )).data.token;
-
-    setCookies('token', token);
-
-    return getMe();
+    const token = (await client.post('/auth/login', data)).data.token;
+    setCookie('token', token);
   };
 
   return login;

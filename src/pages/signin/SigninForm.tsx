@@ -7,6 +7,8 @@ import Form from '../../components/form/Form';
 import TextFormControl from '../../components/form/TextFormControl';
 import useLocalization from '../../localization/useLocalization';
 import useSignin from '../../hooks/useSignin';
+import useLogin from '../../hooks/useLogin';
+import useGetMe from '../../hooks/useGetMe';
 
 const SigninForm = () => {
   const schema = yup.object({
@@ -31,17 +33,25 @@ const SigninForm = () => {
   });
 
   const { strings } = useLocalization();
-
   const navigate = useNavigate();
   const signin = useSignin();
+  const login = useLogin();
+  const getMe = useGetMe();
 
   const onSubmit = (data: FieldValues) => {
     signin({
       email: data.email,
       username: data.username,
       password: data.password,
-    }).then(() => {
-      navigate('/home');
+    }).finally(() => {
+      login({
+        username: data.username,
+        password: data.password,
+      }).finally(() => {
+        getMe().finally(() => {
+          navigate('/home');
+        });
+      });
     });
   };
 
