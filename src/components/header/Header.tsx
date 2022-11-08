@@ -2,18 +2,13 @@ import { Link } from 'react-router-dom';
 
 import HeaderLink from './HeaderLink';
 import useLocalization from '../../localization/useLocalization';
-import useLogout from '../../hooks/useLogout';
 import useSelector from '../../redux/useSelector';
 import { selectIsAuthenticated } from '../../redux/slices/authSlice';
+import LogoutButton from './LogoutButton';
 
 const Header = () => {
   const { strings } = useLocalization();
   const isAuthenticated = useSelector(selectIsAuthenticated);
-  const logout = useLogout();
-
-  const handleLogoutClick = () => {
-    logout();
-  };
 
   return (
     <nav className="navbar navbar-expand-lg bg-light mb-4">
@@ -50,13 +45,7 @@ const Header = () => {
               </Link>
             )}
             {isAuthenticated && (
-              <button
-                type="button"
-                onClick={handleLogoutClick}
-                className="btn btn-outline-primary"
-              >
-                {strings.components.header.logOut}
-              </button>
+              <LogoutButton />
             )}
           </div>
         </div>
