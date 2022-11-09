@@ -6,6 +6,7 @@ const strings_en = {
       logIn: 'Log in',
       signIn: 'Sign in',
       logOut: 'Log out',
+      language: 'Language',
     },
   },
   validation: {

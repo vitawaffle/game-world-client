@@ -5,6 +5,7 @@ import useLocalization from '../../localization/useLocalization';
 import useSelector from '../../redux/useSelector';
 import { selectIsAuthenticated } from '../../redux/slices/authSlice';
 import LogoutButton from './LogoutButton';
+import LanguageSwitcher from './LanguageSwitcher';
 
 const Header = () => {
   const { strings } = useLocalization();
@@ -34,8 +35,9 @@ const Header = () => {
             </HeaderLink>
           </ul>
           <div className="d-flex">
+            <LanguageSwitcher />
             {!isAuthenticated && (
-              <Link to="/login" className="btn btn-outline-primary  me-2">
+              <Link to="/login" className="btn btn-outline-primary me-2">
                 {strings.components.header.logIn}
               </Link>
             )}

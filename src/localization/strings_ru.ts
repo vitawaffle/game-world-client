@@ -6,6 +6,7 @@ const strings_ru = {
       logIn: 'Войти',
       signIn: 'Зарегистрироваться',
       logOut: 'Выйти',
+      language: 'Язык',
     },
   },
   validation: {
