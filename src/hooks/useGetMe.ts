@@ -8,7 +8,13 @@ const useGetMe = () => {
   const dispatch = useDispatch();
 
   const getMe = async () => {
-    const user = (await client.get<User>('/users/me')).data;
+    let user = undefined;
+
+    try {
+      user = (await client.get<User>('/users/me')).data;
+    } catch (ignore) {
+    }
+
     dispatch(setUser(user));
   };
 

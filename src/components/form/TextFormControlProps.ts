@@ -7,6 +7,8 @@ type TextFormControlProps = {
   defaultValue?: string;
   formControl: UseFormRegisterReturn;
   validationError: FieldError | Merge<FieldError, FieldErrorsImpl<any>> | undefined;
+  isInvalid?: boolean;
+  errorMessage?: string;
 };
 
 export default TextFormControlProps;

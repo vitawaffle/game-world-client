@@ -8,6 +8,11 @@ const strings_en = {
       logOut: 'Log out',
     },
   },
+  validation: {
+    required: 'This field is required.',
+    email: 'Invalid email format.',
+    passwordMismatch: 'Password mismatch.',
+  },
   pages: {
     login: {
       prompt: 'Please, log in',
@@ -16,6 +21,7 @@ const strings_en = {
       logIn: 'Log in',
       signInPrompt: 'Don\'t have an account?',
       signIn: 'Sign in',
+      invalidCredentials: 'Invalid credentials.',
     },
     signin: {
       prompt: 'Please, sign in',

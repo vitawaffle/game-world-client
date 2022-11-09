@@ -8,6 +8,11 @@ const strings_ru = {
       logOut: 'Выйти',
     },
   },
+  validation: {
+    required: 'Это поле обязательно.',
+    email: 'Неверный формат электронной почты.',
+    passwordMismatch: 'Пароли не совпадают.',
+  },
   pages: {
     login: {
       prompt: 'Пожалуйста, войдите',
@@ -16,6 +21,7 @@ const strings_ru = {
       logIn: 'Войти',
       signInPrompt: 'Нет аккаунта?',
       signIn: 'Зарегистрируйтесь',
+      invalidCredentials: 'Неверные учётные данные.',
     },
     signin: {
       prompt: 'Пожалуйста, зарегистрируйтесь',

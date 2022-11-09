@@ -11,48 +11,46 @@ import useLogin from '../../hooks/useLogin';
 import useGetMe from '../../hooks/useGetMe';
 
 const SigninForm = () => {
+  const { strings } = useLocalization();
+
   const schema = yup.object({
     email: yup.string()
-      .required('This field is required.')
-      .email('Invalid email format.')
+      .required(strings.validation.required)
+      .email(strings.validation.email)
       .unique('users', 'email'),
     username: yup.string()
-      .required('This field is required.')
+      .required(strings.validation.required)
       .username()
       .unique('users', 'username'),
     password: yup.string()
-      .required('This field is required.')
+      .required(strings.validation.required)
       .password(),
     confirmedPassword: yup.string()
-      .required('This field is required.')
-      .oneOf([yup.ref('password'), null], 'Password mismatch.'),
+      .required(strings.validation.required)
+      .oneOf([yup.ref('password'), null], strings.validation.passwordMismatch),
   });
 
   const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: yupResolver(schema),
   });
 
-  const { strings } = useLocalization();
   const navigate = useNavigate();
   const signin = useSignin();
   const login = useLogin();
   const getMe = useGetMe();
 
-  const onSubmit = (data: FieldValues) => {
-    signin({
-      email: data.email,
-      username: data.username,
-      password: data.password,
-    }).finally(() => {
-      login({
-        username: data.username,
-        password: data.password,
-      }).finally(() => {
-        getMe().finally(() => {
-          navigate('/home');
-        });
-      });
+  const onSubmit = async ({ email, username, password, }: FieldValues) => {
+    await signin({
+      email,
+      username,
+      password,
     });
+    await login({
+      username,
+      password,
+    });
+    await getMe();
+    navigate('/home');
   };
 
   return (

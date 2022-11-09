@@ -7,8 +7,11 @@ const TextFormControl = ({
   defaultValue,
   formControl,
   validationError,
+  isInvalid,
+  errorMessage,
 }: TextFormControlProps) => {
-  const isInvalid = () => validationError !== undefined;
+  const isControlInvalid = () => isInvalidValidation() || isInvalid;
+  const isInvalidValidation = () => validationError !== undefined;
 
   return (
     <div className="mb-3">
@@ -20,11 +23,16 @@ const TextFormControl = ({
         id={id}
         defaultValue={defaultValue ?? ''}
         {...formControl}
-        className={`form-control ${isInvalid() ? 'is-invalid' : ''}`}
+        className={`form-control ${isControlInvalid() ? 'is-invalid' : ''}`}
       />
-      {isInvalid() && (
+      {isInvalidValidation() && (
         <div id={`${id}Feedback`} className="invalid-feedback">
           {`${validationError?.message}`}
+        </div>
+      )}
+      {isInvalid && !!errorMessage && (
+        <div id={`${id}Feedback`} className="invalid-feedback">
+          {errorMessage}
         </div>
       )}
     </div>

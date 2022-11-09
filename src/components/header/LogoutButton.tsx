@@ -10,11 +10,10 @@ const LogoutButton = () => {
   const getMe = useGetMe();
   const { strings } = useLocalization();
 
-  const handleLogoutClick = () => {
+  const handleLogoutClick = async () => {
     logout();
-    getMe().finally(() => {
-      navigate('/home');
-    });
+    await getMe();
+    navigate('/home');
   };
 
   return (

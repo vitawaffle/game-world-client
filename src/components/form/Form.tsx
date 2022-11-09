@@ -2,7 +2,11 @@ import { useState, BaseSyntheticEvent } from 'react';
 
 import FormProps from './FormProps';
 
-const AppForm = ({ onSubmit, submitText, children }: FormProps) => {
+const AppForm = ({
+  onSubmit,
+  submitText,
+  children,
+}: FormProps) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = (event: BaseSyntheticEvent) => {
