@@ -19,7 +19,11 @@ const AppForm = ({
   return (
     <form onSubmit={handleSubmit}>
       {children}
-      <button type="submit" className="btn btn-primary">
+      <button
+        type="submit"
+        disabled={isLoading}
+        className="btn btn-primary"
+      >
         {isLoading && (
           <span
             className="spinner-border spinner-border-sm"
