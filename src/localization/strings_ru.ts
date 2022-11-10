@@ -7,6 +7,7 @@ const strings_ru = {
       signIn: 'Зарегистрироваться',
       logOut: 'Выйти',
       language: 'Язык',
+      profile: 'Профиль',
     },
   },
   validation: {
@@ -33,6 +34,10 @@ const strings_ru = {
       signIn: 'Зарегистрироваться',
       logInPrompt: 'Уже есть аккаунт?',
       logIn: 'Войдите',
+    },
+    profile: {
+      basic: 'Основное',
+      security: 'Безопасность',
     },
   },
 };

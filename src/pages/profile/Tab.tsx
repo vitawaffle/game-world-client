@@ -1,11 +1,11 @@
 import { Link, useLocation } from 'react-router-dom';
 
-import HeaderLinkProps from './HeaderLinkProps';
+import TabProps from './TabProps';
 
-const HeaderLink = ({ to, children }: HeaderLinkProps) => {
+const Tab = ({ to, children }: TabProps) => {
   const location = useLocation();
 
-  const isActive = () => location.pathname.startsWith(to);
+  const isActive = () => to.startsWith(location.pathname);
 
   return (
     <li className="nav-item">
@@ -20,4 +20,4 @@ const HeaderLink = ({ to, children }: HeaderLinkProps) => {
   );
 };
 
-export default HeaderLink;
+export default Tab;

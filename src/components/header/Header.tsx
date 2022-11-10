@@ -33,6 +33,11 @@ const Header = () => {
             <HeaderLink to="/home">
               {strings.components.header.home}
             </HeaderLink>
+            {isAuthenticated && (
+              <HeaderLink to="/profile">
+                {strings.components.header.profile}
+              </HeaderLink>
+            )}
           </ul>
           <div className="d-flex">
             <LanguageSwitcher />

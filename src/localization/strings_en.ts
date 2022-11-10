@@ -7,6 +7,7 @@ const strings_en = {
       signIn: 'Sign in',
       logOut: 'Log out',
       language: 'Language',
+      profile: 'Profile',
     },
   },
   validation: {
@@ -33,6 +34,10 @@ const strings_en = {
       signIn: 'Sign in',
       logInPrompt: 'Alreay have an account?',
       logIn: 'Log in',
+    },
+    profile: {
+      basic: 'Basic',
+      security: 'Security',
     },
   },
 };
