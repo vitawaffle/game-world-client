@@ -1,5 +1,4 @@
 import { useForm, FieldValues } from 'react-hook-form';
-import yup from '../../yupExtensions';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useNavigate } from 'react-router-dom';
 
@@ -9,6 +8,7 @@ import useLocalization from '../../localization/useLocalization';
 import useSignin from '../../hooks/useSignin';
 import useLogin from '../../hooks/useLogin';
 import useGetMe from '../../hooks/useGetMe';
+import yup from '../../yupExtensions';
 
 const SigninForm = () => {
   const { strings } = useLocalization();

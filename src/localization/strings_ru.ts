@@ -38,6 +38,8 @@ const strings_ru = {
     profile: {
       basic: 'Основное',
       security: 'Безопасность',
+      save: 'Сохранить',
+      username: 'Имя пользователя',
     },
   },
 };

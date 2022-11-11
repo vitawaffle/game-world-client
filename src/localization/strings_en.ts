@@ -38,6 +38,8 @@ const strings_en = {
     profile: {
       basic: 'Basic',
       security: 'Security',
+      save: 'Save',
+      username: 'Username',
     },
   },
 };

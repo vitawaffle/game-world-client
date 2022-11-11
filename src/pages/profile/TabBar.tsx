@@ -1,7 +1,7 @@
 import TabBarProps from './TabBarProps';
 
 const TabBar = ({ children }: TabBarProps) => (
-  <ul className="nav nav-tabs">
+  <ul className="nav nav-tabs mb-3">
     {children}
   </ul>
 );

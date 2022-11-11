@@ -8,4 +8,4 @@ interface User extends Entity {
   roles: Role[];
 }
 
-export default Entity;
+export default User;

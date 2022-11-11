@@ -1,5 +1,11 @@
+import UsernameForm from './UsernameForm';
+
 const Basic = () => (
-  <h1>Basic</h1>
+  <div className="card">
+    <div className="card-body">
+      <UsernameForm />
+    </div>
+  </div>
 );
 
 export default Basic;
