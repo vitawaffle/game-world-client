@@ -40,6 +40,7 @@ const strings_ru = {
       security: 'Безопасность',
       save: 'Сохранить',
       username: 'Имя пользователя',
+      changeUsername: 'Сменить имя пользователя',
     },
   },
 };

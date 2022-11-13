@@ -1,5 +1,7 @@
-const Security = () => (
-  <h1>Security</h1>
-);
+const Security = () => {
+  return (
+    <h1>Security</h1>
+  );
+};
 
 export default Security;

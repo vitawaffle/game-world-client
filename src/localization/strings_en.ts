@@ -40,6 +40,7 @@ const strings_en = {
       security: 'Security',
       save: 'Save',
       username: 'Username',
+      changeUsername: 'Change username',
     },
   },
 };
