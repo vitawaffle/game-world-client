@@ -41,6 +41,10 @@ const strings_ru = {
       save: 'Сохранить',
       username: 'Имя пользователя',
       changeUsername: 'Сменить имя пользователя',
+      oldPassword: 'Текущий пароль',
+      newPassword: 'Новый пароль',
+      confirmPassword: 'Подтвердите пароль',
+      changePassword: 'Изменить пароль',
     },
   },
 };

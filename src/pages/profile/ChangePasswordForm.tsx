@@ -32,7 +32,31 @@ const ChangePasswordForm = () => {
   };
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
+    <Form
+      onSubmit={handleSubmit(onSubmit)}
+      submitText={strings.pages.profile.changePassword}
+    >
+      <TextFormControl
+        type="password"
+        id="oldPassword"
+        label={`${strings.pages.profile.oldPassword}*`}
+        formControl={register('oldPassword')}
+        validationError={errors.oldPassword}
+      />
+      <TextFormControl
+        type="password"
+        id="newPassword"
+        label={`${strings.pages.profile.newPassword}*`}
+        formControl={register('newPassword')}
+        validationError={errors.newPassword}
+      />
+      <TextFormControl
+        type="password"
+        id="confirmedPassword"
+        label={`${strings.pages.profile.confirmPassword}*`}
+        formControl={register('confirmedPassword')}
+        validationError={errors.confirmedPassword}
+      />
     </Form>
   );
 };

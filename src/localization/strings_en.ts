@@ -41,6 +41,10 @@ const strings_en = {
       save: 'Save',
       username: 'Username',
       changeUsername: 'Change username',
+      oldPassword: 'Current password',
+      newPassword: 'New password',
+      confirmPassword: 'Confirm password',
+      changePassword: 'Change password',
     },
   },
 };
